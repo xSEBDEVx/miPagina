@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MI PÁGINA</title>
+    <link rel = "stylesheet" href = "styles/styles.css">
+</head>
+<body>
+    <div class="tarjeta">
+        <div class="perfil">
+            
+            <div class="informacion">
+                <h1>BIENVENIDO A MI PERFIL</h1>
+                <h2>Soy Juan Sebastian Vallejo P.</h2>
+                <p class="presentacion">Estudiante de Ingeniería de Sistemas en la Universidad del Cauca</p>
+            </div>
+            
+            <div class="fotoPerfil">
+                <img src="miFoto.jpeg" class="miFoto" alt="Juan Sebastian Vallejo"> 
+            </div>
+
+        </div>
+        <div class = "menu">
+            <button onclick="cambiarSeccion('sobre-mi')">Sobre mí</button>
+            <button onclick="cambiarSeccion('habilidades')">Mis Habilidades</button>
+            <button onclick="cambiarSeccion('contacto')">Contacto</button>
+        </div>
+        <div id="sobre-mi" class="seccion-contenido">
+            <h3>UN POCO SOBRE MÍ</h3>
+            <p>Nací y crecí en la ciudad de Popayán y curso septimo semestre del programa Ingeniería del Sistemas en la Univesidad Del Cauca</p>
+            <p>Mi pasatiempo favorito es manejar moto y me gustaría especializarme en ser un desarrollador full stack</p>
+        </div>
+        <div id="habilidades" class="seccion-contenido">
+            <h3>MIS HABILIDADES</h3>
+            <p>Amplio conocimiento en lenguajes de programación cómo C, C++, Python, Java, Prolog.</p>
+            <p>Creación y estructuración de Bases de Datos Relacionales</p>
+        </div>
+        <div id = "contacto" class = "seccion-contenido">
+            <h3>CONTACTO</h3>
+            <p>E-mail: jusevallejo@unicauca.edu.co</p>
+            <p>Tel. 3116045122</p>
+        </div>
+    </div>
+    
+    <script>
+    // Esta es la función que se ejecuta cuando haces clic en un botón
+    function cambiarSeccion(idDeLaSeccion) {
+        
+        // PASO 1: Buscar todas las secciones y quitarles la clase "activa" (para ocultarlas)
+        let todasLasSecciones = document.querySelectorAll('.seccion-contenido');
+        todasLasSecciones.forEach(function(seccion) {
+            seccion.classList.remove('activa');
+        });
+
+        // PASO 2: Buscar la sección específica que el usuario pidió y agregarle la clase "activa" (para mostrarla)
+        let seccionAMostrar = document.getElementById(idDeLaSeccion);
+        seccionAMostrar.classList.add('activa');
+    }
+    </script>
+</body>
+</html>
