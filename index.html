@@ -25,6 +25,7 @@
             <button onclick="cambiarSeccion('sobre-mi')">Sobre mí</button>
             <button onclick="cambiarSeccion('habilidades')">Mis Habilidades</button>
             <button onclick="cambiarSeccion('contacto')">Contacto</button>
+            <button onclick="cambiarSeccion('proyectos')">Proyectos</button>
         </div>
         <div id="sobre-mi" class="seccion-contenido">
             <h3>UN POCO SOBRE MÍ</h3>
@@ -41,19 +42,22 @@
             <p>E-mail: jusevallejo@unicauca.edu.co</p>
             <p>Tel. 3116045122</p>
         </div>
+        <div id="proyectos" class="seccion-contenido">
+            <h3>PROYECTOS</h3>
+            <p>Proyecto 1: Desarrollo de una aplicación web con HTML, CSS y JavaScript</p>
+            <nav class="navegacion-principal">
+                <a href="https://xsebdevx.github.io/miniProyectoSoft3/" class="enlace-nav">MiniMercado</a>
+             </nav>
+        </div>
     </div>
     
     <script>
-    // Esta es la función que se ejecuta cuando haces clic en un botón
     function cambiarSeccion(idDeLaSeccion) {
-        
-        // PASO 1: Buscar todas las secciones y quitarles la clase "activa" (para ocultarlas)
         let todasLasSecciones = document.querySelectorAll('.seccion-contenido');
         todasLasSecciones.forEach(function(seccion) {
             seccion.classList.remove('activa');
         });
 
-        // PASO 2: Buscar la sección específica que el usuario pidió y agregarle la clase "activa" (para mostrarla)
         let seccionAMostrar = document.getElementById(idDeLaSeccion);
         seccionAMostrar.classList.add('activa');
     }
