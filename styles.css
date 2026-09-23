@@ -1,96 +1,154 @@
 * {
-    box-sizing:border-box;
-    margin:0;
+    box-sizing: border-box;
+    margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #e9ecef;
+    background-color: #235023; 
     font-family: 'Segoe UI', Arial, sans-serif;
     color: #333;
-    display : flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
-.tarjeta{
-    background-color: white;
+
+/* --- ESTILOS DEL FONDO ANIMADO --- */
+#video-fondo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2; /* Lo envía al fondo de todo */
+    object-fit: cover; /* Asegura que el video llene la pantalla sin deformarse */
+}
+
+.capa-oscura {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Oscurece el video un 40% */
+    z-index: -1; /* Se ubica entre el video y tu tarjeta */
+}
+
+/* --- TARJETA CON EFECTO CRISTAL --- */
+.tarjeta {
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco al 85% de opacidad */
+    backdrop-filter: blur(10px); /* El efecto de desenfoque estilo cristal */
+    -webkit-backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
     max-width: 1000px;
     width: 90%;
+    z-index: 1; /* Asegura que esté por encima del video */
 }
 
 h1 {
     font-size: 50px;
-    color: #0056b3;
+    color: #156137;
     margin-bottom: 10px;
     line-height: 1.1;
 }
 
-h2{
+h2 {
     font-size: 30px;
     color: #555;
-    margin-bottom:15px;
+    margin-bottom: 15px;
 }
 
-p.presentacion{
+p.presentacion {
     font-size: 20px;
     color: #666;
     line-height: 1.5;
 }
 
-.miFoto{
+.miFoto {
     width: 90%;
     max-width: 250px;
     border-radius: 50%;
     box-shadow: 0 8px 20px rgba(44, 64, 85, 0.2);
     border: 3px solid #444c55;
 }
-.fotoPerfil{
+
+.fotoPerfil {
     text-align: center;
 }
-.perfil{
+
+.perfil {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 40px;
     align-items: center;
 }
 
-.informacion{
+.informacion {
     text-align: left;
 }
 
-.menu{
+.menu {
     display: flex;
     gap: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.menu button{
+.menu button {
     padding: 10px 20px;
-    background-color: #e9ecef;
+    background-color: rgba(233, 236, 239, 0.9); /* Ligeramente transparente para combinar con la tarjeta */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
     color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave al pasar el mouse */
 }
 
-.menu button:hover{
-    background-color: #0056b3;
-    color:white;
+.menu button:hover,
+.menu button.activo {
+    background-color: #156137;
+    color: white;
 }
 
-.seccion-contenido{
-    display:none;
-    padding:20px;
-    background-color: #f8f9fa;
+.seccion-contenido {
+    display: none;
+    padding: 20px;
+    background-color: rgba(248, 249, 250, 0.85); /* Fondo semitransparente para el texto interior */
     border-radius: 10px;
+    margin-top: 15px;
 }
 
-.seccion-contenido.activa{
-    display:block;
+.seccion-contenido.activa {
+    display: block;
+}
+
+.seccion-contenido h3 {
+    margin-bottom: 10px;
+    color: #156137;
+}
+
+.seccion-contenido p {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Ajustes del enlace al MiniMercado */
+.navegacion-principal {
+    margin-top: 10px;
+}
+
+.enlace-nav {
+    color: #156137;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.enlace-nav:hover {
+    text-decoration: underline;
 }

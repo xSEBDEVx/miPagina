@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MI PÁGINA</title>
-    <link rel = "stylesheet" href = "styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <video autoplay loop muted playsinline id="video-fondo">
+        <source src="vids/videoBucle.webm" type="video/webm">
+    </video>
+    <div class="capa-oscura"></div>
+
     <div class="tarjeta">
         <div class="perfil">
             
@@ -21,15 +26,16 @@
             </div>
 
         </div>
-        <div class = "menu">
-            <button onclick="cambiarSeccion('sobre-mi')">Sobre mí</button>
-            <button onclick="cambiarSeccion('habilidades')">Mis Habilidades</button>
-            <button onclick="cambiarSeccion('contacto')">Contacto</button>
-            <button onclick="cambiarSeccion('proyectos')">Proyectos</button>
+        <div class="menu">
+            <button onclick="cambiarSeccion('sobre-mi', this)">Sobre mí</button>
+            <button onclick="cambiarSeccion('habilidades', this)">Mis Habilidades</button>
+            <button onclick="cambiarSeccion('contacto', this)">Contacto</button>
+            <button onclick="cambiarSeccion('proyectos', this)">Proyectos</button>
         </div>
         <div id="sobre-mi" class="seccion-contenido">
             <h3>UN POCO SOBRE MÍ</h3>
             <p>Nací y crecí en la ciudad de Popayán y curso septimo semestre del programa Ingeniería del Sistemas en la Univesidad Del Cauca</p>
+            <p>Me gustan los videojuegos y los animales, en especial los perros, tengo la creencia que a todos los niños del mundo deberían infundirles el respeto y amor por ellos desde la escuela.</p>
             <p>Mi pasatiempo favorito es manejar moto y me gustaría especializarme en ser un desarrollador full stack</p>
         </div>
         <div id="habilidades" class="seccion-contenido">
@@ -37,7 +43,7 @@
             <p>Amplio conocimiento en lenguajes de programación cómo C, C++, Python, Java, Prolog.</p>
             <p>Creación y estructuración de Bases de Datos Relacionales</p>
         </div>
-        <div id = "contacto" class = "seccion-contenido">
+        <div id="contacto" class="seccion-contenido">
             <h3>CONTACTO</h3>
             <p>E-mail: jusevallejo@unicauca.edu.co</p>
             <p>Tel. 3116045122</p>
@@ -46,21 +52,25 @@
             <h3>PROYECTOS</h3>
             <p>Proyecto 1: Desarrollo de una aplicación web con HTML, CSS y JavaScript</p>
             <nav class="navegacion-principal">
-                <a href="https://xsebdevx.github.io/miniProyectoSoft3/" class="enlace-nav">MiniMercado</a>
+                <a href="https://xsebdevx.github.io/miniProyectoSoft3/" class="enlace-nav">URL MiniMercado</a>
              </nav>
         </div>
     </div>
     
-    <script>
-    function cambiarSeccion(idDeLaSeccion) {
-        let todasLasSecciones = document.querySelectorAll('.seccion-contenido');
-        todasLasSecciones.forEach(function(seccion) {
-            seccion.classList.remove('activa');
-        });
-
-        let seccionAMostrar = document.getElementById(idDeLaSeccion);
-        seccionAMostrar.classList.add('activa');
-    }
-    </script>
+<script>
+function cambiarSeccion(idDeLaSeccion, botonSeleccionado) {
+    let todasLasSecciones = document.querySelectorAll('.seccion-contenido');
+    todasLasSecciones.forEach(function(seccion) {
+        seccion.classList.remove('activa');
+    });
+    let todosLosBotones = document.querySelectorAll('.menu button');
+    todosLosBotones.forEach(function(boton) {
+        boton.classList.remove('activo');
+    });
+    let seccionAMostrar = document.getElementById(idDeLaSeccion);
+    seccionAMostrar.classList.add('activa');
+    botonSeleccionado.classList.add('activo');
+}
+</script>
 </body>
 </html>
